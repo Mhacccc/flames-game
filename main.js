@@ -1,8 +1,8 @@
 
 
 function startFlames(){
-    let name1 = document.getElementById("name1").value.toLowerCase().split("");
-    let name2 = document.getElementById("name2").value.toLowerCase().split("");
+    let name1 = document.getElementById("name1").value.trim().toLowerCase().split("");
+    let name2 = document.getElementById("name2").value.trim().toLowerCase().split("");
     let result = document.getElementById("result");
     let flames = ["Friends","Lovers","Affection","Marriage","Enemy","Soulmate"]
 
