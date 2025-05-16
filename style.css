@@ -1,5 +1,4 @@
-
-/* Base styles with responsive units */
+/* Mobile-first responsive design */
 body {
     font-family: 'Comic Neue', cursive, sans-serif;
     background: linear-gradient(135deg, #ffe4e1, #fff0f5);
@@ -8,125 +7,114 @@ body {
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    padding: 2vw;
+    padding: 5vw; /* More padding on mobile */
     margin: 0;
     box-sizing: border-box;
-    user-select: none;
-    padding: 0;
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
 }
 
-/* Responsive typography */
 h1 {
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 3rem); /* More reasonable max size */
     color: #ff69b4;
     text-shadow: 1px 1px 2px #ffa6c9;
-    margin-bottom: 0.5em;
+    margin: 0.5em 0;
     text-align: center;
+    line-height: 1.2; /* Better mobile spacing */
+    word-break: break-word; /* Prevent overflow */
 }
 
 h2 {
-    font-size: clamp(1rem, 4vw, 1rem);
+    font-size: clamp(0.9rem, 3.5vw, 1.3rem); /* Better mobile sizing */
     color: #ff1493;
     font-weight: normal;
-    margin-bottom: 1.5rem;
+    margin: 0.5rem 0 1.5rem;
     text-align: center;
-   
+    padding: 0 3vw; /* Responsive padding */
+    line-height: 1.4;
 }
 
-/* Form layout */
 .input-group {
+    width: 100%;
+    max-width: 400px; /* Limits width on larger screens */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    gap: 1rem;
 }
 
 .input-row {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 1rem;
 }
 
 label {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    color: #ff69b4;
-    margin-bottom: 0.5rem;
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    margin-bottom: 0.3rem;
+    color: #d23369;
 }
 
-input[type="text"] {
-    padding: 0.8rem 1rem;
-    border-radius: 20px;
-    border: 2px solid #ff69b4;
+input {
+    padding: 12px 15px;
+    border: 2px solid #ffb6c1;
+    border-radius: 20px; /* Rounded corners */
     font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
-    background-color: #fff0f5;
     width: 100%;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
 }
 
-input[type="text"]:focus {
-    border-color: #ff1493;
-    box-shadow: 0 0 10px #ff1493;
+input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
 }
 
-/* Button styles */
 button {
-    margin-top: 1.5rem;
-    padding: 0.8rem 2rem;
-    background-color: #ff69b4;
-    color: #fff;
+    background: #ff69b4;
+    color: white;
     border: none;
-    border-radius: 25px;
-    font-size: clamp(1rem, 4vw, 1.2rem);
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-top: 1rem;
     transition: all 0.3s ease;
-    width: auto;
-    min-width: 150px;
+    width: 100%;
 }
 
-button:hover {
-    background-color: #ff1493;
-    transform: scale(1.05);
+button:hover, button:focus {
+    background: #ff1493;
+    transform: scale(1.02);
 }
 
-/* Result styling */
+button:active {
+    transform: scale(0.98);
+}
+
 #result {
-    margin-top: 2rem;
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
-    color: #ff69b4;
-    font-family: 'Pacifico', cursive;
-    text-shadow: 1px 1px 3px #ffa6c9;
-    text-align: center;
-    min-height: 3rem;
-    padding: 0 1rem;
+    margin-top: 1.5rem;
+    min-height: 1.5em; /* Prevents layout shift */
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: #c71585;
+    font-weight: bold;
 }
 
-/* Media query for larger screens */
-@media (max-width: 850px) {
-    body{
-        padding: 0;
-        margin: 0;
+/* Mobile landscape adaptation */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 2vh 5vw;
     }
-    .input-row {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+    .input-group {
+        max-width: 300px;
+    }
+}
 
+/* Larger screens */
+@media (min-width: 768px) {
+    body {
+        padding: 2rem;
     }
-
-    
-    label {
-        margin-bottom: 0;
-        margin-right: 1rem;
-        width: 30%;
-    }
-    
-    input[type="text"] {
-        width: 70%;
+    .input-group {
+        gap: 1.2rem;
     }
 }
