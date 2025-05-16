@@ -11,6 +11,8 @@ body {
     padding: 2vw;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
+    padding: 0;
 }
 
 /* Responsive typography */
@@ -23,11 +25,12 @@ h1 {
 }
 
 h2 {
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-size: clamp(1rem, 4vw, 1rem);
     color: #ff1493;
     font-weight: normal;
     margin-bottom: 1.5rem;
     text-align: center;
+   
 }
 
 /* Form layout */
@@ -104,20 +107,18 @@ button:hover {
 }
 
 /* Media query for larger screens */
-@media (max-width: 600px) {
+@media (max-width: 850px) {
+    body{
+        padding: 0;
+        margin: 0;
+    }
     .input-row {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
     }
 
-    h2{
-        font-size: 1rem;
-        color: #ff1493;
-        font-weight: normal;
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
     
     label {
         margin-bottom: 0;
