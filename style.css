@@ -39,6 +39,8 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    color: #ffe4e1;
+    
 }
 
 .input-row {
